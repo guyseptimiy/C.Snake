@@ -60,5 +60,10 @@ namespace snake
                     break;
             }
         }
+
+        internal bool isHit(Point food)
+        {
+            return this.x == food.x && this.y == food.y;
+        }
     }
 }
