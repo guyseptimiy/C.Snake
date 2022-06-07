@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace snake
 {
     internal class Program
-    {
-
+    {   
         static void Main(string[] args)
         {
             Console.SetBufferSize(120, 30);
@@ -26,7 +25,7 @@ namespace snake
 
             while (true)
             {
-                if (walls.IsHit(snake)) // || snake.IsHitTail()
+                if (walls.IsHit(snake) || snake.IsHitTail()) // 
                 {
                     break;
                 }

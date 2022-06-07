@@ -61,9 +61,9 @@ namespace snake
             }
         }
 
-        internal bool isHit(Point food)
+        internal bool isHit(Point p)
         {
-            return this.x == food.x && this.y == food.y;
+            return this.x == p.x && this.y == p.y;
         }
     }
 }

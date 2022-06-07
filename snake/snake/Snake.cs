@@ -52,6 +52,17 @@ namespace snake
                 return false;
         }
 
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.isHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
         public void HandleKey(ConsoleKey key)
         {
             switch (key)
@@ -71,15 +82,5 @@ namespace snake
             }
         }
 
-        internal bool IsHitTail()
-        {
-            var head = pList.First();
-            for (int i = 0; i < pList.Count() - 2; i++)
-            {
-                if (head.isHit(pList[i]))
-                    return true;
-            }
-            return false;
-        }
     }
 }

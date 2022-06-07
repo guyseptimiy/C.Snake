@@ -8,8 +8,8 @@ namespace snake
 {
     internal class Walls
     {
-        List<Figure> wallList;
-        char sym = '+';
+        private List<Figure> wallList;
+        private readonly char sym = '+';
         
         public Walls(int mapWidth, int mapHeight)
         {
@@ -31,7 +31,9 @@ namespace snake
             foreach (var wall in wallList)
             {
                 if (wall.IsHit(figure))
+                {
                     return true;
+                }
             }
             return false;
         }
