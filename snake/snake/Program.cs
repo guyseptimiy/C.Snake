@@ -9,23 +9,12 @@ namespace snake
 {
     internal class Program
     {
-        static void DrawSquare()
-        {
-            //Console.SetBufferSize(130, 40);
 
-            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
-            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
-            VerticalLine leftLine = new VerticalLine(0, 0, 24, '+');
-            VerticalLine rightLine = new VerticalLine(78, 0, 24, '+');
-            upLine.Draw();
-            downLine.Draw();
-            leftLine.Draw();
-            rightLine.Draw();
-        }
         static void Main(string[] args)
         {
-
-            DrawSquare();
+            Console.SetBufferSize(120, 30);
+            Walls walls = new Walls(80, 25);
+            walls.Draw();
             
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
@@ -37,6 +26,11 @@ namespace snake
 
             while (true)
             {
+                if (walls.IsHit(snake)) // || snake.IsHitTail()
+                {
+                    break;
+                }
+
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -46,7 +40,7 @@ namespace snake
                 {
                     snake.Move();
                 }
-
+                 
                 Thread.Sleep(100);
 
                 if (Console.KeyAvailable)

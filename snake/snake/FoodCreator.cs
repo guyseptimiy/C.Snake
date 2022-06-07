@@ -9,17 +9,17 @@ namespace snake
     internal class FoodCreator
     {
 
-        protected int mapWidth;
-        protected int mapHeight;
-        protected char sym;
-        protected Random random; 
+        private int mapWidth;
+        private int mapHeight;
+        private char sym;
+        
+        Random random = new Random(); 
 
         public FoodCreator(int mapWidth, int mapHeight, char sym)
         {
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
             this.sym = sym;
-            this.random = new Random();
         }
 
         public Point CreateFood()
