@@ -36,23 +36,28 @@ namespace snake
             return "" + x + ", " + y + ", " + sym;
         }
 
+        internal void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
         public void Move(int offset, Direction direction)
         {
-            if (direction == Direction.RIGHT)
+            switch (direction)
             {
-                x += offset;
-            }
-            else if (direction == Direction.LEFT)
-            {
-                x -= offset;
-            }
-            else if (direction == Direction.UP)
-            {
-                y -= offset;
-            }
-            else if (direction == Direction.DOWN) 
-            {
-                y += offset;
+                case Direction.RIGHT:
+                    x += offset;
+                    break;
+                case Direction.LEFT:
+                    x -= offset;
+                    break;
+                case Direction.UP:
+                    y -= offset;
+                    break;
+                case Direction.DOWN:
+                    y += offset;
+                    break;
             }
         }
     }
